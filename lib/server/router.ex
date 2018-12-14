@@ -12,6 +12,13 @@ defmodule Server.Router do
     |> send_resp(200, message())
   end
 
+  post "/file" do
+    response = Server.Adapter.Upload.handle(Server.Command.Upload).(conn)
+    conn
+    |> put_resp_content_type(@content_type)
+    |> send_resp(response.status, Poison.encode!(response.body))
+  end
+
   match _ do
     send_resp(conn, 404, "Requested resource not found.")
   end

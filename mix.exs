@@ -24,7 +24,8 @@ defmodule Server.MixProject do
     [
       {:poison, "~> 3.0"},
       {:plug, "~> 1.6"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:download, "~> 0.0.4"}
     ]
   end
 end
